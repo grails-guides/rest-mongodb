@@ -1,10 +1,10 @@
 Each link:{mongodbApi}/com/mongodb/client/MongoCollection.html[MongoCollection] is represented by a http://gorm.grails.org/latest/hibernate/manual/index.html#domainClasses[GORM domain class].
 
-If you have Grails installed you can create with the `create-domain-class` CLI command from the root of your project:
+You can create a domain class with the `create-domain-class` CLI command from the root of your project:
 
 [source,bash]
 ----
-$ grails create-domain-class Product
+$ ./grailsw create-domain-class Product
 | Created grails-app/domain/mongodb/example/Product.groovy
 | Created src/test/groovy/mongodb/example/ProductSpec.groovy
 ----
