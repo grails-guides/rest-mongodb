@@ -1,0 +1,7 @@
+import mongodb.example.Product
+
+model {
+	Product product
+}
+
+json tmpl.product(product)
