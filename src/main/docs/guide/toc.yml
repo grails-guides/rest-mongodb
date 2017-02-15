@@ -18,3 +18,5 @@ runningTheApp:
   readData: Reading Data with GET
   updateData: Updating Data with PUT
   deleteDate: Deleting Data with DELETE
+helpWithGrails:
+  title: Do you need help with Grails?  
