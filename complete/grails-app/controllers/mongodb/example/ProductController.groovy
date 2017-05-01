@@ -1,9 +1,10 @@
 package mongodb.example
 
-//tag::controller[]
-import grails.rest.*
-import grails.converters.*
+import grails.rest.RestfulController
+import groovy.transform.CompileStatic
 
+//tag::controller[]
+@CompileStatic
 class ProductController extends RestfulController {
     static responseFormats = ['json', 'xml']
     ProductController() {
@@ -12,7 +13,7 @@ class ProductController extends RestfulController {
     //end::controller[]
     //tag::searchAction[]
     def search(String q, Integer max ) { // <1>
-        if(q) {
+        if (q) {
             //tag::whereQuery[]
             def query = Product.where { // <2>
                 name ==~ ~/$q/

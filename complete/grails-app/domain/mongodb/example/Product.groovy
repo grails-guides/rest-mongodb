@@ -1,5 +1,8 @@
 package mongodb.example
 
+import grails.compiler.GrailsCompileStatic
+
+@GrailsCompileStatic
 class Product {
 
     String name
@@ -7,8 +10,8 @@ class Product {
 
     //tag::constraints[]
     static constraints = {
-        name blank:false
-        price range:0.0..1000.00
+        name blank: false
+        price range: 0.0..1000.00
     }
     //end::constraints[]
 }

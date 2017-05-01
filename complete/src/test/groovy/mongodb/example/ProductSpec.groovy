@@ -4,8 +4,9 @@ package mongodb.example
 import com.mongodb.MongoClient
 import de.flapdoodle.embed.mongo.distribution.Version
 import de.flapdoodle.embed.mongo.tests.MongodForTestsFactory
+import grails.test.mongodb.MongoSpec
 import grails.test.mixin.TestFor
-import grails.test.mongodb.*
+
 //end::imports[]
 
 /**
@@ -13,6 +14,7 @@ import grails.test.mongodb.*
  */
 //tag::spec[]
 //tag::mongoSpec[]
+@SuppressWarnings(['MethodName', 'DuplicateNumberLiteral'])
 @TestFor(Product)
 class ProductSpec extends MongoSpec {
 //end::mongoSpec[]
@@ -25,14 +27,14 @@ class ProductSpec extends MongoSpec {
     //end::createClient[]
 
     //tag::testName[]
-    void "test domain class validation"() {
+    void 'test domain class validation'() {
     //end::testName[]
         //tag::testInvalid[]
-        when:"A domain class is saved with invalid data"
-        Product product = new Product(name: "", price: -2.0d)
+        when: 'A domain class is saved with invalid data'
+        Product product = new Product(name: '', price: -2.0d)
         product.save()
 
-        then:"There were errors and the data was not saved"
+        then: 'There were errors and the data was not saved'
         product.hasErrors()
         product.errors.getFieldError('price')
         product.errors.getFieldError('name')
@@ -40,16 +42,15 @@ class ProductSpec extends MongoSpec {
         //end::testInvalid[]
 
         //tag::testValid[]
-        when:"A valid domain is saved"
+        when: 'A valid domain is saved'
         product.name = 'Banana'
         product.price = 2.15d
         product.save()
 
-        then:"The product was saved successfully"
+        then: 'The product was saved successfully'
         Product.count() == 1
         Product.first().price == 2.15d
         //end::testValid[]
     }
-    
 }
 //end::spec[]

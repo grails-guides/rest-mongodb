@@ -8,6 +8,7 @@ import grails.test.mixin.TestFor
 import grails.test.mongodb.MongoSpec
 
 //tag::spec[]
+@SuppressWarnings('MethodName')
 @TestFor(ProductController)
 class ProductControllerSpec extends MongoSpec {
 //end::spec[]
@@ -26,22 +27,22 @@ class ProductControllerSpec extends MongoSpec {
     //tag::setup[]
     void setup() {
         Product.saveAll(
-            new Product(name: "Apple", price: 2.0),
-            new Product(name: "Orange", price: 3.0),
-            new Product(name: "Banana", price: 1.0),
-            new Product(name: "Cake", price: 4.0)
+            new Product(name: 'Apple', price: 2.0),
+            new Product(name: 'Orange', price: 3.0),
+            new Product(name: 'Banana', price: 1.0),
+            new Product(name: 'Cake', price: 4.0)
         )
     }
     //end::setup[]
 
     //tag::test[]
-    void "test the search action finds results"() {
-        when:"A query is executed that finds results"
+    void 'test the search action finds results'() {
+        when: 'A query is executed that finds results'
         controller.search('pp', 10)
 
-        then:"The response is correct"
+        then: 'The response is correct'
         response.json.size() == 1
-        response.json[0].name == "Apple"
+        response.json[0].name == 'Apple'
     }
     //tag::test[]
 }
