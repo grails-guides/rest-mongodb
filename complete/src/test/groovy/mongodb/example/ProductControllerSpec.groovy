@@ -4,13 +4,12 @@ import com.mongodb.MongoClient
 import de.flapdoodle.embed.mongo.distribution.Version
 import de.flapdoodle.embed.mongo.tests.MongodForTestsFactory
 import grails.plugin.json.view.mvc.JsonViewResolver
-import grails.test.mixin.TestFor
 import grails.test.mongodb.MongoSpec
+import grails.testing.web.controllers.ControllerUnitTest
 
 //tag::spec[]
 @SuppressWarnings('MethodName')
-@TestFor(ProductController)
-class ProductControllerSpec extends MongoSpec {
+class ProductControllerSpec extends MongoSpec implements ControllerUnitTest<ProductController> {
 //end::spec[]
 
     //tag::config[]
