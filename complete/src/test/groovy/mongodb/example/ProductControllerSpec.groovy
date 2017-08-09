@@ -4,8 +4,8 @@ import com.mongodb.MongoClient
 import de.flapdoodle.embed.mongo.distribution.Version
 import de.flapdoodle.embed.mongo.tests.MongodForTestsFactory
 import grails.plugin.json.view.mvc.JsonViewResolver
-import grails.testing.web.controllers.ControllerUnitTest
 import grails.test.mongodb.MongoSpec
+import grails.testing.web.controllers.ControllerUnitTest
 
 //tag::spec[]
 @SuppressWarnings('MethodName')

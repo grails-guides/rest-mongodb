@@ -8,13 +8,10 @@ import grails.test.mongodb.MongoSpec
 import grails.testing.gorm.DomainUnitTest
 //end::imports[]
 
-/**
- * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
- */
 //tag::spec[]
 //tag::mongoSpec[]
 @SuppressWarnings(['MethodName', 'DuplicateNumberLiteral'])
-class ProductSpec extends MongoSpec implements DomainUnitTest<Product>  {
+class ProductSpec extends MongoSpec implements DomainUnitTest<Product> {
 //end::mongoSpec[]
 
     //tag::createClient[]
