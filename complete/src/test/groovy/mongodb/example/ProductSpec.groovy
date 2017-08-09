@@ -6,7 +6,6 @@ import de.flapdoodle.embed.mongo.distribution.Version
 import de.flapdoodle.embed.mongo.tests.MongodForTestsFactory
 import grails.test.mongodb.MongoSpec
 import grails.testing.gorm.DomainUnitTest
-
 //end::imports[]
 
 //tag::spec[]
