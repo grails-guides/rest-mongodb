@@ -37,7 +37,7 @@ Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
 Date: Wed, 23 Nov 2016 08:54:25 GMT
 
-{"message":"Property [price] of class [class mongodb.example.Product] with value [-2] does not fall within the valid range from [0] to [1,000]","path":"","_links":{"self":{"href":"http://localhost:8080/products/1"}}}
+{"message":"Property [price] of class [class demo.Product] with value [-2] does not fall within the valid range from [0] to [1,000]","path":"","_links":{"self":{"href":"http://localhost:8080/products/1"}}}
 ----
 
 TIP: The error response is rendered by the `grails-app/views/error.gson` view and the messages are obtained from the message bundles located at `grails-app/i18n`

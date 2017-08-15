@@ -1,4 +1,4 @@
-package mongodb.example
+package demo
 
 import grails.rest.RestfulController
 import groovy.transform.CompileStatic

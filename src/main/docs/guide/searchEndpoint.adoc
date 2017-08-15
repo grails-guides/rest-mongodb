@@ -4,9 +4,9 @@ For example, say you wanted to be able to search for products using the `/produc
 
 
 [source,groovy]
-.grails-app/controllers/mongodb/example/ProductController.groovy
+.grails-app/controllers/demo/ProductController.groovy
 ----
-include::{sourceDir}/grails-app/controllers/mongodb/example/ProductController.groovy[tags=searchAction,indent=0]
+include::{sourceDir}/grails-app/controllers/demo/ProductController.groovy[tags=searchAction,indent=0]
 ----
 
 <1> An action called `search` is defined that takes a query parameter, called `q`, and a `max` parameter
@@ -14,12 +14,12 @@ include::{sourceDir}/grails-app/controllers/mongodb/example/ProductController.gr
 <3> The `respond` method is used to respond with a list of results
 <4> For the case where no query is specified we `respond` with an empty list
 
-With the action written you now need to expose the `/products/search` endoint by defining the appropriate mapping in `grails-app/conf/mongodb/example/UrlMappings.groovy`:
+With the action written you now need to expose the `/products/search` endoint by defining the appropriate mapping in `grails-app/conf/demo/UrlMappings.groovy`:
 
 [source,groovy]
-.grails-app/controllers/mongodb/example/UrlMappings.groovy
+.grails-app/controllers/demo/UrlMappings.groovy
 ----
-include::{sourceDir}/grails-app/controllers/mongodb/example/UrlMappings.groovy[tags=productMapping,indent=0]
+include::{sourceDir}/grails-app/controllers/demo/UrlMappings.groovy[tags=productMapping,indent=0]
 ----
 
 The above example uses the `collection` method to nest URIs directly underneath the `/products` URI (for example `/product/search`) instead of nesting it below the resource identifier (for example `/product/1/search`).

@@ -1,4 +1,4 @@
-package mongodb.example
+package demo
 
 import com.mongodb.MongoClient
 import de.flapdoodle.embed.mongo.distribution.Version

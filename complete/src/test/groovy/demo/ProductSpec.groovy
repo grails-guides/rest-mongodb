@@ -1,4 +1,4 @@
-package mongodb.example
+package demo
 
 //tag::imports[]
 import com.mongodb.MongoClient

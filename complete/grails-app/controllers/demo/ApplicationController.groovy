@@ -1,9 +1,11 @@
-package mongodb.example
+package demo
 
 import grails.core.GrailsApplication
-import grails.util.Environment
-import grails.plugins.*
+import grails.plugins.GrailsPluginManager
+import grails.plugins.PluginManagerAware
+import groovy.transform.CompileStatic
 
+@CompileStatic
 class ApplicationController implements PluginManagerAware {
 
     GrailsApplication grailsApplication

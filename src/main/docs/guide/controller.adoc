@@ -4,8 +4,8 @@ The quickest way to do that is with the `create-restful-controller` command from
 
 [source,bash]
 ----
-$ ./grailsw create-restful-controller mongodb.example.Product
-| Created grails-app/controllers/mongodb/example/ProductController.groovy
+$ ./grailsw create-restful-controller demo.Product
+| Created grails-app/controllers/demo/ProductController.groovy
 ----
 
 However, you can also simply create the controller with your favourite text editor or IDE.
@@ -13,9 +13,9 @@ However, you can also simply create the controller with your favourite text edit
 The contents of the controller should look like the following:
 
 [source,groovy]
-.grails-app/controllers/mongodb/example/ProductController.groovy
+.grails-app/controllers/demo/ProductController.groovy
 ----
-include::{sourceDir}/grails-app/controllers/mongodb/example/ProductController.groovy[tag=controller, indent=0]
+include::{sourceDir}/grails-app/controllers/demo/ProductController.groovy[tag=controller, indent=0]
 }
 ----
 

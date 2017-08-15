@@ -14,7 +14,7 @@ If you want to alter the output of the JSON the way that is done in Grails is by
 
 [source,bash]
 ----
-./grailsw generate-views mongodb.example.Product
+./grailsw generate-views demo.Product
 | Rendered template index.gson to destination grails-app/views/product/index.gson
 | Rendered template show.gson to destination grails-app/views/product/show.gson
 | Rendered template _domain.gson to destination grails-app/views/product/_product.gson
@@ -31,7 +31,7 @@ The contents of the `_product.gson` by default look like:
 [source,groovy]
 .grails-app/views/product/_product.gson
 ----
-import mongodb.example.Product
+import demo.Product
 
 model {
     Product product

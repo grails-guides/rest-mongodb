@@ -1,4 +1,4 @@
-import mongodb.example.Product
+import demo.Product
 
 model {
 	Iterable<Product> productList

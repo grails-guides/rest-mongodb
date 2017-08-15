@@ -1,9 +1,9 @@
 If you wish to define http://gorm.grails.org/latest/hibernate/manual/index.html#constraints[validation constraints] on properties defined in a GORM domain class, you can do so using the `constraints` property:
 
 [source,groovy]
-.grails-app/domain/mongodb/example/Product.groovy
+.grails-app/domain/demo/Product.groovy
 ----
-include::{sourceDir}/grails-app/domain/mongodb/example/Product.groovy[tags=constraints,indent=0]
+include::{sourceDir}/grails-app/domain/demo/Product.groovy[tags=constraints,indent=0]
 ----
 
 The above example applies two constraints:
@@ -11,32 +11,32 @@ The above example applies two constraints:
 * The `name` property is constrained so that it cannot be a blank string.
 * The `price` property is constrained so that it must be greater than 0 and less than a thousand using the `range` constraint.
 
-To verify these constraints work to our expectation you can write a test. If you used the `create-domain-class` a test called `src/test/groovy/mongodb/example/ProductSpec.groovy` was generated for you already. Otherwise simply creating an appropriately named test in `src/test/groovy` using your IDE or text editor will suffice.
+To verify these constraints work to our expectation you can write a test. If you used the `create-domain-class` a test called `src/test/groovy/demo/ProductSpec.groovy` was generated for you already. Otherwise simply creating an appropriately named test in `src/test/groovy` using your IDE or text editor will suffice.
 
 To effectively test interactions with MongoDB in a unit test it is recommended you use `grails.test.mongodb.MongoSpec` combined with https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo[Embedded MongoDB].
 
 To achieve this first modify the imports of the `ProductSpec` class as follows:
 
 [source,groovy]
-.src/test/groovy/mongodb/example/ProductSpec.groovy
+.src/test/groovy/demo/ProductSpec.groovy
 ----
-include::{sourceDir}/src/test/groovy/mongodb/example/ProductSpec.groovy[tags=imports,indent=0]
+include::{sourceDir}/src/test/groovy/demo/ProductSpec.groovy[tags=imports,indent=0]
 ----
 
 Then ensure the `ProductSpec` extends the `MongoSpec` base class:
 
 [source,groovy]
-.src/test/groovy/mongodb/example/ProductSpec.groovy
+.src/test/groovy/demo/ProductSpec.groovy
 ----
-include::{sourceDir}/src/test/groovy/mongodb/example/ProductSpec.groovy[tags=mongoSpec,indent=0]
+include::{sourceDir}/src/test/groovy/demo/ProductSpec.groovy[tags=mongoSpec,indent=0]
 ----
 
 Next override the `createMongoClient` method of the `MongoSpec` base class return an instance of embedded MongoDB:
 
 [source,groovy]
-.src/test/groovy/mongodb/example/ProductSpec.groovy
+.src/test/groovy/demo/ProductSpec.groovy
 ----
-include::{sourceDir}/src/test/groovy/mongodb/example/ProductSpec.groovy[tags=createClient,indent=0]
+include::{sourceDir}/src/test/groovy/demo/ProductSpec.groovy[tags=createClient,indent=0]
 ----
 
 The above code will startup a MongoDB server used only for the execution of the test.
@@ -44,9 +44,9 @@ The above code will startup a MongoDB server used only for the execution of the 
 With the test prepared you are ready to write a test. Tests in Grails are written with http://spockframework.org[Spock Framework], which allows you to define much more readable tests including having spaces in the name:
 
 [source,groovy]
-.src/test/groovy/mongodb/example/ProductSpec.groovy
+.src/test/groovy/demo/ProductSpec.groovy
 ----
-include::{sourceDir}/src/test/groovy/mongodb/example/ProductSpec.groovy[tags=testName,indent=0]
+include::{sourceDir}/src/test/groovy/demo/ProductSpec.groovy[tags=testName,indent=0]
     ...
 }
 ----
@@ -54,9 +54,9 @@ include::{sourceDir}/src/test/groovy/mongodb/example/ProductSpec.groovy[tags=tes
 First lets write a test for the invalid case. You can do so using Spock `when` and `then` blocks to make the test more readable:
 
 [source,groovy]
-.src/test/groovy/mongodb/example/ProductSpec.groovy
+.src/test/groovy/demo/ProductSpec.groovy
 ----
-include::{sourceDir}/src/test/groovy/mongodb/example/ProductSpec.groovy[tags=testInvalid,indent=0]
+include::{sourceDir}/src/test/groovy/demo/ProductSpec.groovy[tags=testInvalid,indent=0]
 ----
 
 The above example sets the `name` to a blank value and the `price` to a negative value and attempts to save the instance using the link:{mongodbGormApi}/org/grails/datastore/gorm/GormEntity.html#save()[save()] method.
@@ -66,9 +66,9 @@ The `then` block asserts that the object is invalid and was not saved.
 To write a test for the valid case populate some valid data and try and assert that the object was saved:
 
 [source,groovy]
-.src/test/groovy/mongodb/example/ProductSpec.groovy
+.src/test/groovy/demo/ProductSpec.groovy
 ----
-include::{sourceDir}/src/test/groovy/mongodb/example/ProductSpec.groovy[tags=testValid,indent=0]
+include::{sourceDir}/src/test/groovy/demo/ProductSpec.groovy[tags=testValid,indent=0]
 ----
 
 All done! Now to run the test you can run `./gradlew check` from a terminal window or run the test within your IDE if the IDE supports it:
