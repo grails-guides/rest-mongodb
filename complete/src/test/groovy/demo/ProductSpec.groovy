@@ -1,52 +1,44 @@
 package demo
 
-//tag::imports[]
-import com.mongodb.MongoClient
-import de.flapdoodle.embed.mongo.distribution.Version
-import de.flapdoodle.embed.mongo.tests.MongodForTestsFactory
 import grails.test.mongodb.MongoSpec
 import grails.testing.gorm.DomainUnitTest
+import com.github.fakemongo.Fongo
+import com.mongodb.MongoClient
 
-//end::imports[]
+@SuppressWarnings(['MethodName', 'DuplicateNumberLiteral', 'TrailingWhitespace'])
+class ProductSpec extends MongoSpec // <3>
+        implements DomainUnitTest<Product> {  // <4>
 
-//tag::spec[]
-//tag::mongoSpec[]
-@SuppressWarnings(['MethodName', 'DuplicateNumberLiteral'])
-class ProductSpec extends MongoSpec implements DomainUnitTest<Product> {
-//end::mongoSpec[]
-
-    //tag::createClient[]
     @Override
-    MongoClient createMongoClient() {
-        MongodForTestsFactory.with(Version.Main.PRODUCTION).newMongo()
+    MongoClient createMongoClient() {  // <2>
+        new Fongo(getClass().name).mongo
     }
-    //end::createClient[]
 
-    //tag::testName[]
-    void 'test domain class validation'() {
-    //end::testName[]
-        //tag::testInvalid[]
-        when: 'A domain class is saved with invalid data'
-        Product product = new Product(name: '', price: -2.0d)
-        product.save()
+    void 'a negative value is not a valid price'() { // <1>
+        given:
+        domain.price = -2.0d
 
-        then: 'There were errors and the data was not saved'
-        product.hasErrors()
-        product.errors.getFieldError('price')
-        product.errors.getFieldError('name')
-        Product.count() == 0
-        //end::testInvalid[]
+        expect:
+        !domain.validate(['price'])
+    }
 
-        //tag::testValid[]
-        when: 'A valid domain is saved'
-        product.name = 'Banana'
-        product.price = 2.15d
-        product.save()
+    void 'a blank name is not save'() { // <1>
+        given:
+        domain.name = ''
 
-        then: 'The product was saved successfully'
-        Product.count() == 1
-        Product.first().price == 2.15d
-        //end::testValid[]
+        expect:
+        !domain.validate(['name'])
+    }
+
+    void 'A valid domain is saved'() {  // <1>
+        given:
+        domain.name = 'Banana'
+        domain.price = 2.15d
+
+        when:
+        domain.save()
+
+        then:
+        Product.count() == old(Product.count()) + 1
     }
 }
-//end::spec[]
