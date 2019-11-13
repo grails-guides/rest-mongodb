@@ -5,6 +5,10 @@ To submit a `POST` request use the following in a terminal window:
 [source,bash]
 ----
 $ curl -i -H "Content-Type:application/json" -X POST localhost:8080/products -d '{"name":"Orange","price":2.0}'
+
+on windows in cmd line the correct way is to do so :
+curl -X POST  -d "{\"name\":\"Orange\",\"price\":2.0}" -H "Content-Type:application/json" localhost:8080/products
+
 ----
 
 The resulting output will be:
