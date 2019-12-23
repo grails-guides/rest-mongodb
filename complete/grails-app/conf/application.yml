@@ -20,6 +20,8 @@ info:
         version: '@info.app.version@'
         grailsVersion: '@info.app.grailsVersion@'
 spring:
+    jmx:
+        unique-names: true
     main:
         banner-mode: "off"
     groovy:
@@ -29,9 +31,6 @@ spring:
 # Spring Actuator Endpoints are Disabled by Default
 endpoints:
     enabled: false
-    jmx:
-        enabled: true
-
 ---
 grails:
     mime:
