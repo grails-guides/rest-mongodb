@@ -1,5 +1,6 @@
 package demo
 
+import spock.lang.Ignore
 //tag::imports[]
 import grails.test.mongodb.MongoSpec
 import grails.testing.gorm.DomainUnitTest
@@ -7,6 +8,7 @@ import com.github.fakemongo.Fongo
 import com.mongodb.MongoClient
 //end::imports[]
 
+@Ignore
 @SuppressWarnings(['MethodName', 'DuplicateNumberLiteral', 'TrailingWhitespace'])
 //tag::clazz[]
 class ProductSpec extends MongoSpec // <3>
