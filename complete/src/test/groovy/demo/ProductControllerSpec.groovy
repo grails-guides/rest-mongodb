@@ -1,11 +1,14 @@
 package demo
 
+//tag::imports[]
 import com.github.fakemongo.Fongo
 import com.mongodb.MongoClient
 import grails.test.mongodb.MongoSpec
 import grails.testing.web.controllers.ControllerUnitTest
+//end::imports[]
 
 @SuppressWarnings('MethodName')
+//tag::clazz[]
 class ProductControllerSpec extends MongoSpec // <1>
         implements ControllerUnitTest<ProductController> {  // <2>
 
@@ -30,3 +33,4 @@ class ProductControllerSpec extends MongoSpec // <1>
         response.json[0].name == 'Apple'
     }
 }
+//end::clazz[]

@@ -1,11 +1,14 @@
 package demo
 
+//tag::imports[]
 import grails.test.mongodb.MongoSpec
 import grails.testing.gorm.DomainUnitTest
 import com.github.fakemongo.Fongo
 import com.mongodb.MongoClient
+//end::imports[]
 
 @SuppressWarnings(['MethodName', 'DuplicateNumberLiteral', 'TrailingWhitespace'])
+//tag::clazz[]
 class ProductSpec extends MongoSpec // <3>
         implements DomainUnitTest<Product> {  // <4>
 
@@ -42,3 +45,4 @@ class ProductSpec extends MongoSpec // <3>
         Product.count() == old(Product.count()) + 1
     }
 }
+//end::clazz[]

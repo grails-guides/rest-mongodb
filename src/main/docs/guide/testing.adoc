@@ -12,7 +12,9 @@ Write the next unit test:
 [source,groovy]
 .src/test/groovy/demo/ProductControllerSpec.groovy
 ----
-include::{sourceDir}/src/test/groovy/demo/ProductControllerSpec.groovy[]
+include::{sourceDir}/src/test/groovy/demo/ProductControllerSpec.groovy[tag=imports]
+
+include::{sourceDir}/src/test/groovy/demo/ProductControllerSpec.groovy[tag=clazz]
 ----
 
 <1> MongoSpec is an abstract class that will initialise GORM in the setup phase of the specification being executed

@@ -24,7 +24,9 @@ To write unit tests with MongoDB and Spock, you can simply extend from `grails.t
 [source,groovy]
 .src/test/groovy/demo/ProductSpec.groovy
 ----
-include::{sourceDir}/src/test/groovy/demo/ProductSpec.groovy[]
+include::{sourceDir}/src/test/groovy/demo/ProductSpec.groovy[tag=imports]
+
+include::{sourceDir}/src/test/groovy/demo/ProductSpec.groovy[tag=clazz]
 ----
 
 <1> Spock allows you to define much more readable
