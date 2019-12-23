@@ -19,6 +19,15 @@ spring:
     groovy:
         template:
             check-template-location: false
+    devtools:
+        restart:
+            additional-exclude:
+                - '*.gsp'
+                - '**/*.gsp'
+                - '*.gson'
+                - '**/*.gson'
+                - 'logback.groovy'
+                - '*.properties'
 management:
     endpoints:
         enabled-by-default: false
