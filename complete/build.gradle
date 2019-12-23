@@ -17,7 +17,6 @@ apply plugin:"war"
 apply plugin:"org.grails.grails-web"
 
 repositories {
-    mavenLocal()
     maven { url "https://repo.grails.org/grails/core" }
 }
 
