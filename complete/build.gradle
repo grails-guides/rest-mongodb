@@ -56,9 +56,6 @@ dependencies {
     testCompile "org.grails:grails-web-testing-support"
     testCompile "org.mockito:mockito-core"
     testCompile "org.grails:grails-gorm-testing-support"
-    testCompile "org.grails.plugins:geb"
-    testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
-    testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
 //tag::fongo[]
     testCompile 'com.github.fakemongo:fongo:2.1.0'
 //end::fongo[]
