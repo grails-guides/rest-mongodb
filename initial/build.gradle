@@ -9,7 +9,7 @@ buildscript {
 }
 
 version "0.1"
-group "mongodb.example"
+group "example.grails"
 
 apply plugin:"eclipse"
 apply plugin:"idea"
